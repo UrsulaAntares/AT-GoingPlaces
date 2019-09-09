@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component, Fragment} from 'react'
 
-class Login extends React.Component {
+class Login extends Component {
 
     constructor() {
         super()
@@ -48,13 +48,32 @@ class Login extends React.Component {
 
     render() {
         return(
+            <Fragment >
             <div className="comp login box">
-                <form onSubmit={(event) => this.handleLoginSubmit(event)}>
-                    <input name="username" className="input" type="text" placeholder="Username" />
-                    <input name="password" className="input" type="password" placeholder="Password" />
-                    <input type="submit" className="button"/>
-                </form>
+            <section class="hero is-primary is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                            <form action="" className="box" onSubmit={(event) => this.handleLoginSubmit(event)}>
+                                <div className="field">
+                                    {/* <label for="username" className="label">Username</label> */}
+                                    <input name="username" className="input" type="text" placeholder="Username" />
+                                </div>
+                                <div className="field">
+                                    {/* <label for="password" className="label">Password</label> */}
+                                <input name="password" className="input" type="password" placeholder="Password" />
+                                </div>
+                                <input type="submit" className="button"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>        
             </div>
+        </section>
+    </div>
+</Fragment>
+
         )
     }
 } 
