@@ -1,6 +1,6 @@
 import React from 'react'
 import Trip from '../components/Trip';
-import image from '/Users/ashley/Desktop/GoingPlaces App/GoingPlaces Frontend/AT-GoingPlaces/src/adventure-beautiful-beautiful-sunset-2897548.jpg'
+import image from '../adventure-beautiful-beautiful-sunset-2897548.jpg'
 
 class TripList extends React.Component {
 

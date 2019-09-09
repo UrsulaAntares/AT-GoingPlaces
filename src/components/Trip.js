@@ -1,6 +1,6 @@
 import React from 'react'
 import BudgetSnapShotContainer from '../containers/BudgetSnapShotContainer'
-import Placeholder from '/Users/ashley/Desktop/GoingPlaces App/GoingPlaces Frontend/AT-GoingPlaces/src/chris-karidis-nnzkZNYWHaU-unsplash.jpg'
+import Placeholder from '../chris-karidis-nnzkZNYWHaU-unsplash.jpg'
 
 class Trip extends React.Component {
 
