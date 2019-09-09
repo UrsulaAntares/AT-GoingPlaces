@@ -1,20 +1,27 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-class NavBar extends React.Component {
-
-    constructor() {
-        super()
-
-        this.state={
-            loremIpsum: 'Urs says hi from NavBar'
-        }
-    }
-
-    render() {
-        return(
-            <div className="comp navbar">This is a Nav Bar </div>
-        )
-    }
-} 
+const NavBar = () => {
+    return (
+      <div className = "navbar">
+        <NavLink
+          to = "/home"
+          exact
+        >Home</NavLink>
+        <NavLink
+          to = "/login"
+          exact
+        >Login</NavLink>
+        <NavLink
+          to = "/trip"
+          exact
+        >Trip</NavLink>
+        <NavLink
+          to = "/tripslist"
+          exact
+        >Trips</NavLink>
+      </div>
+    );
+  };
 
 export default NavBar
