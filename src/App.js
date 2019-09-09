@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import logo from './logo.svg';
-import './App.css';
-import { Button } from "react-bulma-components/full";
+import './App.scss'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Trip from './components/Trip'
 import TripList from './containers/TripList';
 import Login from './components/Login';
+import TripDetail from './components/TripDetail';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route exact path = "/login" component = {Login} />
         <Route exact path = "/trip" component = {Trip} />
         <Route exact path = "/tripslist" component = {TripList} />
+        <Route exact path = "/tripslist/:id" component = {TripDetail} />
       </React.Fragment>
     </Router>
   );

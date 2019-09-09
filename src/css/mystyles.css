@@ -10911,3 +10911,10 @@ a.navbar-item,
       padding: 9rem 1.5rem; }
     .section.is-large {
       padding: 18rem 1.5rem; } }
+
+html {
+  background-color: blue; }
+
+p {
+  padding: 200px;
+  font-family: 'Nunito'; }

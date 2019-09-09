@@ -2,7 +2,12 @@
 @import "../node_modules/bulma/bulma.sass";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Roboto&display=swap');
+
+a {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+}
 
 // Set your brand colors
 $purple: #8A4D76;
@@ -36,3 +41,11 @@ $input-shadow: none;
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
+
+// TripList Styling //
+p {
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+// End TripList Styling //

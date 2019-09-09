@@ -1,5 +1,6 @@
 import React from 'react'
 import Trip from '../components/Trip';
+import image from '/Users/ashley/Desktop/GoingPlaces App/GoingPlaces Frontend/AT-GoingPlaces/src/adventure-beautiful-beautiful-sunset-2897548.jpg'
 
 class TripList extends React.Component {
 
@@ -7,7 +8,8 @@ class TripList extends React.Component {
         super()
 
         this.state={
-            trips: []
+            trips: [],
+            index: 0
         }
     }
 
@@ -21,32 +23,36 @@ class TripList extends React.Component {
         })
     }
 
+    // show 4 trips
+  fourTrips = () => {
+    return this.state.trips.slice(this.state.index, this.state.index + 4)
+  }
+
     render() {
+        const styles = {
+            heroInfo: {
+                backgroundImage: `url(${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }
+        };
         return(
             <div>
-                <section className="hero is-info is-large">
+                <section className="hero is-info is-medium" style = {styles.heroInfo}>
                     <div className="hero-body">
-                        <div className="container">
-                        <h1 className="title">
-                            Large title
-                        </h1>
-                        <h2 className="subtitle">
-                            Large subtitle
-                        </h2>
-                        </div>
                     </div>
                 </section>
-                <div>Current Trip Plan</div>
-                <div>
-                    Current Trip
-                </div>
-                <button>
-                    Create a New Trip
-                </button>
-                <div>All Trips</div>
-                <div className="comp tripList">
+
+                <nav className="level">
+                    <p className="level-item has-text-centered">
+                        All Trips
+                    </p>
+                </nav>
+
+                <div className="comp tripList columns">
                     {
-                        this.state.trips.map(trip => {
+                        this.fourTrips().map(trip => {
                             return <Trip key = {trip.id} trip = {trip} />
                         })
                     }
