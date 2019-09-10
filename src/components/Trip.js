@@ -3,7 +3,7 @@ import BudgetSnapShotContainer from '../containers/BudgetSnapShotContainer'
 import Placeholder from '../chris-karidis-nnzkZNYWHaU-unsplash.jpg'
 
 class Trip extends React.Component {
-    debugger
+    
 
     render() {
         return( 
