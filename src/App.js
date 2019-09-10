@@ -39,7 +39,7 @@ class App extends React.Component {
               { return this.state.user ? <UserProfile {...this.state.user}/> : <Login updateUser={this.updateUser} /> }
               }  />
           <Route exact path = "/trip" component = {Trip} />
-          <Route exact path = "/tripslist" component = {TripList} />
+          <Route exact path = "/triplist" render = {routerProps => <TripList {...routerProps}/> } />
         </React.Fragment>
       </Router>
     );

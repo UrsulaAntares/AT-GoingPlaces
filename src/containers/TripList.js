@@ -1,6 +1,8 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import Trip from '../components/Trip';
 import image from '../adventure-beautiful-beautiful-sunset-2897548.jpg'
+import TripDetail from '../components/TripDetail'
 
 class TripList extends React.Component {
 
@@ -39,7 +41,7 @@ class TripList extends React.Component {
         };
         return(
             <div>
-                <section className="hero is-info is-medium" style = {styles.heroInfo}>
+                <section className="hero is-info is-large" style = {styles.heroInfo}>
                     <div className="hero-body">
                     </div>
                 </section>
@@ -53,7 +55,12 @@ class TripList extends React.Component {
                 <div className="comp tripList columns">
                     {
                         this.fourTrips().map(trip => {
-                            return <Trip key = {trip.id} trip = {trip} />
+                            return (
+                                <React.Fragment>
+                                    <Trip key = {trip.id} trip = {trip} />
+                                    <Route path = {`${this.props.match.url}/:tripID`} render = {routerProps => <TripDetail trip = {trip} {...routerProps} /> } />
+                                </React.Fragment>
+                            )
                         })
                     }
                 </div>

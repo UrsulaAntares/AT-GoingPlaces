@@ -50,11 +50,11 @@ class Login extends Component {
         return(
             <Fragment >
             <div className="comp login box">
-            <section class="hero is-primary is-fullheight">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="columns is-centered">
-                        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <section className="hero is-primary is-fullheight">
+            <div className="hero-body">
+                <div className="container">
+                    <div className="columns is-centered">
+                        <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="" className="box" onSubmit={(event) => this.handleLoginSubmit(event)}>
                                 <div className="field">
                                     {/* <label for="username" className="label">Username</label> */}

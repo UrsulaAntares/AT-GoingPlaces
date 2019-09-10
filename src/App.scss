@@ -9,6 +9,21 @@ a {
     font-size: 2em;
 }
 
+.navbar {
+    background: none;
+    position: absolute;
+    width: 100%;
+}
+
+.level-item {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+}
+
+.is-half {
+    border: blue 1px;
+}
+
 // Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;

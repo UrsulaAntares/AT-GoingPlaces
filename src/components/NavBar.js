@@ -9,7 +9,7 @@ const NavBar = () => {
     }
 };
     return (
-        <nav className="navbar" role="navigation" aria-label="main navigation" style = {styles.navbarColor}>
+        <nav className="navbar is-transparent" role="navigation" aria-label="main navigation" style = {styles.navbarColor}>
           <div className="navbar-brand">
             <a className="navbar-item" href="#">
               Going Places
@@ -36,7 +36,7 @@ const NavBar = () => {
               >Login</NavLink>
               <NavLink
                 className = "navbar-item"
-                to = "/tripslist"
+                to = "/triplist"
                 exact
               >Trip List</NavLink>
               <NavLink

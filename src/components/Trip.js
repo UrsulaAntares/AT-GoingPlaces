@@ -1,6 +1,7 @@
 import React from 'react'
 import BudgetSnapShotContainer from '../containers/BudgetSnapShotContainer'
 import Placeholder from '../chris-karidis-nnzkZNYWHaU-unsplash.jpg'
+import { Link } from 'react-router-dom'
 
 class Trip extends React.Component {
 
@@ -27,7 +28,8 @@ class Trip extends React.Component {
                             <p>{this.props.trip.name}</p>
                             
                             <p className="subtitle is-6">{this.props.trip.users.map(user => user.name + ' ')} </p>
-                            
+
+                            <Link key = {this.props.trip.id} to = {`/triplist/${this.props.trip.id}`}>See Trip</Link>
                         </div>
                     </div>
                 </div>
