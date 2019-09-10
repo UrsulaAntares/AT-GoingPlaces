@@ -25,7 +25,6 @@ class Login extends Component {
         fetch(`http://localhost:4000/users/${this.state.username}`)
             .then(res => res.json())
             .then(user  => {
-                
                 this.props.updateUser(user)
                 console.log(user)}
                 )
