@@ -22,7 +22,7 @@ class Login extends Component {
         this.setState({username: event.currentTarget.username.value})
         this.setState({password: event.currentTarget.password.value})
         if (this.state.username) {
-        fetch(`http://localhost:3001/users/${this.state.username}`)
+        fetch(`http://localhost:4000/users/${this.state.username}`)
             .then(res => res.json())
             .then(user  => {
                 
@@ -35,7 +35,7 @@ class Login extends Component {
     getUsers=()=> {
         let users;
         console.log("you're trying to get users")
-        // fetch('http://localhost:3001/users').then(res=>res.json()).then(gottenusers => users.push(gottenusers))
+        // fetch('http://localhost:4000/users').then(res=>res.json()).then(gottenusers => users.push(gottenusers))
         console.log(users)
         return users
     }
@@ -50,11 +50,11 @@ class Login extends Component {
         return(
             <Fragment >
             <div className="comp login box">
-            <section class="hero is-primary is-fullheight">
-            <div class="hero-body">
-                <div class="container">
-                    <div class="columns is-centered">
-                        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <section className="hero is-primary is-fullheight">
+            <div className="hero-body">
+                <div className="container">
+                    <div className="columns is-centered">
+                        <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="" className="box" onSubmit={(event) => this.handleLoginSubmit(event)}>
                                 <div className="field">
                                     {/* <label for="username" className="label">Username</label> */}
