@@ -19,17 +19,17 @@ class Trip extends React.Component {
                 <div className="card-content">
                     <div className="columns">
                         <div className="column is-half">
-                            <p>{this.props.name}</p>
-                            <p>{this.props.date}</p>
+                            <p>{this.props.trip.name}</p>
+                            <p>{this.props.trip.date}</p>
                         </div>
                         <div className="column is-half">
                             <span className="icon">
                                 <i className="fa fa-map-marker" aria-hidden="true"></i>
                             </span>
-                            <p>{this.props.name}</p>
+                            <p>{this.props.trip.name}</p>
                             
-                            <p className="subtitle is-6">{this.props.users ? this.props.users.map(user => user.name + ' '): null} </p>
-                            <Link to={`/trips/${this.props.id}`} > See Details</Link>
+                            <p className="subtitle is-6">{this.props.trip.users ? this.props.trip.users.map(user => user.name + ' '): null} </p>
+                            <Link key = {this.props.trip.id} to = {`/trips/${this.props.trip.id}`}>See Trip</Link>
                         </div>
                     </div>
                 </div>

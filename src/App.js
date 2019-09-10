@@ -15,7 +15,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      user: null
+      user: null,
+      trips: []
     }
   }
 
@@ -27,6 +28,7 @@ class App extends React.Component {
   }
 
 componentDidMount() {
+  // Fetching Users
   if (!window.localStorage.username === null) {
     console.log(`We already have a user and their name is ${window.localStorage.username}`)
     fetch(`http://localhost:4000/users/${window.localStorage.username}`).then(res => res.json())
@@ -37,6 +39,14 @@ componentDidMount() {
       this.setState({loading: false})
       console.log("okay, no pre-existing user")
     }
+    // Fetching Trips
+    fetch('http://localhost:4000/trips')
+        .then(resp => resp.json())
+        .then(trip => {
+            this.setState({
+                trips: trip
+            })
+        })
   }
 
   checkUser = () => {
@@ -55,13 +65,13 @@ componentDidMount() {
 
   render() {
     this.checkUser()
-    // !window.localStorage.username === null ?  fetch(`http://localhost:4000/users/${window.localStorage.username}`).then(res => res.json())
-    //    .then(user => {this.updateUser(user)}) : null 
+    
     return (
       
       
       <Router>
         <React.Fragment>
+          {/* Navbar */}
           <NavBar logged_in={!!this.state.user} updateUser={this.updateUser} />
 
           <Route exact path = "/" render={() => <Redirect to ="/login" />}   />
@@ -72,8 +82,8 @@ componentDidMount() {
               {return this.state.user ? <UserProfile {...this.state.user}/> : <Login updateUser={this.updateUser} /> }
               }  />
 
-          <Route exact path="/profile" render={() => this.state.user ?
-            <UserProfile {...this.state.user}/> :
+          <Route exact path="/profile" render={() => this.state.user ? 
+            (props => <UserProfile {...props} {...this.state.user} trips = {this.state.trips}/>) :
             <Redirect to="/login" />
           }/>
 
@@ -84,6 +94,7 @@ componentDidMount() {
           }} />
 
 {/* Not sure how the top and bottom parts of this nav should react to each other yet; some redundancy */}
+{/* <Link key = {this.props.trip.id} to = {`/triplist/${this.props.trip.id}`}>See Trip</Link> */}
 
           <Route exact path = "/trip" component = {Trip} />
           <Route path={`/trips/:id`} component={TripDetail}/>

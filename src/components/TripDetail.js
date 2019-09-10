@@ -1,14 +1,12 @@
 import React from 'react'
-import Trip from './Trip'
 import Budget from './Budget'
 
-const TripDetail = ({ match}) => {
-    // console.log(trip)
+const TripDetail = (props) => {
+    debugger
     return( 
         <div className = "columns">
             <div className = "column">
-                {/* <h3>{trip[match.params.id].name}</h3>
-                <Trip trip = {trip}/> */}
+                <h3>{props.name}</h3>
             </div>
             <div className = "column">
                 <Budget />
