@@ -19,7 +19,7 @@ class TripCreationForm extends React.Component {
 
     makeTheTrip = (event) => {
         
-        let data = {name: event.currentTarget.tripname.value, date: event.currentTarget.date.value}
+        let data = {name: event.currentTarget.tripname.value, date: event.currentTarget.date.value, username: window.localStorage.username}
         event.preventDefault()
         // console.log("you're making a trip")
         fetch("http://localhost:4000/trips", {
