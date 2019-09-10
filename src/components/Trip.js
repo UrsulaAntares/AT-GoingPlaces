@@ -29,7 +29,7 @@ class Trip extends React.Component {
                             <p>{this.props.name}</p>
                             
                             <p className="subtitle is-6">{this.props.users ? this.props.users.map(user => user.name + ' '): null} </p>
-                            
+                            <Link to={`/trips/${this.props.id}`} > See Details</Link>
                         </div>
                     </div>
                 </div>

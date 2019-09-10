@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Trip from './components/Trip'
 import TripList from './containers/TripList';
+import TripDetail from './components/TripDetail';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 
@@ -85,6 +86,7 @@ componentDidMount() {
 {/* Not sure how the top and bottom parts of this nav should react to each other yet; some redundancy */}
 
           <Route exact path = "/trip" component = {Trip} />
+          <Route path={`/trips/:id`} component={TripDetail}/>
           <Route exact path = "/triplist" render = {routerProps => <TripList {...routerProps}/> } />
         </React.Fragment>
       </Router>
