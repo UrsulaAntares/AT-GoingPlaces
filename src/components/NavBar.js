@@ -24,16 +24,17 @@ const NavBar = () => {
 
           <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-              <NavLink
+              {/* <NavLink
                 className = "navbar-item"
                 to = "/home"
                 exact
-              >Home</NavLink>
-              <NavLink
+              >Home</NavLink>  */}
+              {!window.localStorage.username ? <NavLink
                 className = "navbar-item"
                 to = "/login"
                 exact
-              >Login</NavLink>
+              >Login</NavLink> : null }
+              {/* Login link only shows if no one logged in */}
               <NavLink
                 className = "navbar-item"
                 to = "/triplist"
@@ -49,12 +50,23 @@ const NavBar = () => {
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <a className="button is-primary">
+                  <NavLink className="button is-primary"
+                  to ="/users/new">
                     <strong>Sign up</strong>
-                  </a>
-                  <a className="button is-light">
+                  </NavLink>
+
+                  <NavLink className="button is-light"
+                  to = "/logout"
+                  exact
+                  >
+                    Log Out
+                  </NavLink>
+                  <NavLink className="button is-light"
+                  to = "/login"
+                  exact
+                  >
                     Log in
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             </div>

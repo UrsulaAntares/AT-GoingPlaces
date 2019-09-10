@@ -22,7 +22,7 @@ class Login extends Component {
         this.setState({username: event.currentTarget.username.value})
         this.setState({password: event.currentTarget.password.value})
         if (this.state.username) {
-        fetch(`http://localhost:3001/users/${this.state.username}`)
+        fetch(`http://localhost:4000/users/${this.state.username}`)
             .then(res => res.json())
             .then(user  => {
                 
@@ -35,7 +35,7 @@ class Login extends Component {
     getUsers=()=> {
         let users;
         console.log("you're trying to get users")
-        // fetch('http://localhost:3001/users').then(res=>res.json()).then(gottenusers => users.push(gottenusers))
+        // fetch('http://localhost:4000/users').then(res=>res.json()).then(gottenusers => users.push(gottenusers))
         console.log(users)
         return users
     }
