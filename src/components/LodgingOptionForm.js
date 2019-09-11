@@ -13,8 +13,9 @@ class LodgingOptionForm extends React.Component {
 
 
     makeTheOption = (event) => {
-        // debugger
-        let data = {name: event.currentTarget.optionName.value, destination_id: event.currentTarget.destination_id.value }
+
+        let data = {name: event.currentTarget.optionName.value, destination_id: event.currentTarget.destination_id.value, trip_id: parseInt(this.props.trip_id) }
+        
         event.preventDefault()
         console.log("you're making a lodgingOption")
         fetch("http://localhost:4000/lodging_options", {
@@ -24,15 +25,13 @@ class LodgingOptionForm extends React.Component {
             },
             body: JSON.stringify(data)
         }).then(res => res.json())
-        // The behavior we want is to show the trip detail page 
+        // The behavior we want is to show the trip detail page w/this minimized after complete
     }
 
     getDestinations=()=>{
-        // this.setState({destinations: ["anthing"]})
         let allDestinations = []
         fetch('http://localhost:4000/destinations').then(res => res.json()).then(destinations => {
-            allDestinations.push(...destinations)
-            
+            allDestinations.push(...destinations)       
     })
         this.setState({allDestinations: allDestinations})
     }
@@ -43,6 +42,7 @@ class LodgingOptionForm extends React.Component {
 
     render() {
         // this.getDestinations()
+        debugger
         return (
         <div className="comp box optionform form">
             <section className="hero is-primary is-fullheight">

@@ -11,15 +11,12 @@ class TripCreationForm extends React.Component {
         }
     }
 
-    goToTrip = (id) => {
-       return <Redirect to={`http://localhost:3000/trips/${id}`} />
-        //this does not work; think the problem lies in EITEHR the fact that it can't go into the chained .then fetches below 
-        // OR Ursula does not properly understand when where how to use route redirect 
-    }
+
 
     makeTheTrip = (event) => {
         
-        let data = {name: event.currentTarget.tripname.value, date: event.currentTarget.date.value, username: window.localStorage.username}
+        let data = {name: event.currentTarget.tripname.value,   
+            date: event.currentTarget.date.value, username: window.localStorage.username}
         event.preventDefault()
         // console.log("you're making a trip")
         fetch("http://localhost:4000/trips", {

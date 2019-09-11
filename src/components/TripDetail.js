@@ -9,8 +9,12 @@ class TripDetail extends React.Component {
     constructor() {
         super()
         this.state = {
-            dummything: "Yo"
+            trip: {}
         }
+    }
+
+    componentDidMount(){
+        this.getThisTrip()
     }
     
     getThisTrip=()=>{
@@ -19,12 +23,15 @@ class TripDetail extends React.Component {
     }
 
     render() {
-        this.getThisTrip()
+        // debugger
         return( 
             <div className = "columns">
                 <div className = "column">
                     <h3>{this.state.trip ? this.state.trip.name : null}</h3>
-                    <LodgingOptionForm />
+                    {/* This (below) needs to be refactored to take in props for trip */}
+                    <LodgingOptionForm trip_id={this.props.match.url.split("/")[2]}/>
+                    <LodgingOptionForm trip_id={27}/>
+                    
                 </div>
                 <div className = "column">
                     <Budget />
