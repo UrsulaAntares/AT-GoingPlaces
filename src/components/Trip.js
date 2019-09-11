@@ -33,7 +33,9 @@ class Trip extends React.Component {
                         </div>
                     </div>
                 </div>
-                <BudgetSnapShotContainer />
+                <BudgetSnapShotContainer
+                    trip = {this.props.trip}
+                />
             </div>
         )
     }

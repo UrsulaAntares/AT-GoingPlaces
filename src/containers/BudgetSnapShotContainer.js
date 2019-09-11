@@ -16,7 +16,9 @@ class BudgetSnapshot extends React.Component {
         return(
             <div  className="comp budgetSnapshots">
                 <div>This is a BudgetSnapshot</div>
-                <Budget />
+                <Budget
+                    trip = {this.props.trip}
+                />
                 <Snapshot />
             </div>
         )
