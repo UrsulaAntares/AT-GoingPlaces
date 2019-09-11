@@ -57,8 +57,6 @@ class LodgingOptionForm extends React.Component {
                                 </div>
                                 <div className="field">
                                     {/* <label for="location" className="label">Location</label> */}
-                                    {/* Below we will add a field using dataset to autoselect locations */}
-                                    {/* <input name="location" className="input" type="text"  /> */}
                                     <input list="destinations" name="destination_id"/>
                                     <datalist id="destinations">
                                         {/* refactor this to use the ACTUALLY RELEVANT LOCATIONS instead of every location */}
