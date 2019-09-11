@@ -31,18 +31,7 @@ const TripList = ({ trips }) => {
                 </nav>
 
                 <div className="comp tripList columns">
-                    {
-                        // this.fourTrips().map(trip => {
-                        //     return (
-                        //         <React.Fragment>
-                        //             <Trip key = {trip.id} trip = {trip} />
-                        //             <Route path = {`${this.props.match.url}/:tripID`} render = {routerProps => <TripDetail trip = {trip} {...routerProps} /> } />
-                        //         </React.Fragment>
-                        //     )
-                        // })
-
-                        renderTrips
-                    }
+                    {renderTrips}
                 </div>
             </div>
         )

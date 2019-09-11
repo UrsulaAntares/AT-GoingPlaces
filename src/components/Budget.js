@@ -1,4 +1,6 @@
 import React from 'react'
+import LodgingOption from './LodgingOption'
+import MealOption from './MealOption'
 
 class Budget extends React.Component {
 
@@ -12,7 +14,15 @@ class Budget extends React.Component {
 
     render() {
         return(
-            <div  className="comp budget">Budget Overview</div>
+            <div>
+                <div  className="comp budget">
+                    Budget Overview
+                </div>
+                <div>
+                    <LodgingOption />
+                    <MealOption />
+                </div>
+            </div>
         )
     }
 } 

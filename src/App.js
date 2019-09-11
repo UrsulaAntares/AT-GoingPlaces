@@ -62,13 +62,11 @@ componentDidMount() {
       }
     }
 
-
   render() {
     this.checkUser()
     
     return (
-      
-      
+      <React.Fragment>
       <Router>
         <React.Fragment>
           {/* Navbar */}
@@ -97,10 +95,22 @@ componentDidMount() {
 {/* <Link key = {this.props.trip.id} to = {`/triplist/${this.props.trip.id}`}>See Trip</Link> */}
 
           <Route exact path = "/trip" component = {Trip} />
-          <Route path={`/trips/:id`} component={TripDetail}/>
+          <Route path={`/trips/:id`} render = {props => {
+            console.log("Props in App", props.match.params.id)
+            console.log("Trips State in App", this.state.trips)
+            const loadTrip = () => {
+              return this.state.trips.find(trip => {
+                return parseInt(props.match.params.id) === parseInt(trip.id)
+              })
+            }
+            return (
+              <TripDetail {...props} trip = {loadTrip()} />
+            )}
+          }/>
           <Route exact path = "/triplist" render = {routerProps => <TripList {...routerProps}/> } />
         </React.Fragment>
       </Router>
+      </React.Fragment>
     );
   }
 }
