@@ -1,54 +1,69 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+// import Destinations from 'http://localhost:4000/destinations'
 
 class LodgingOptionForm extends React.Component {
 
     constructor() {
         super()
         this.state = {
-            
         }
     }
 
-    goToTrip = (id) => {
-        return <Redirect to={`http://localhost:3000/trips/${id}`} />
-         //this does not work; think the problem lies in EITEHR the fact that it can't go into the chained .then fetches below 
-         // OR Ursula does not properly understand when where how to use route redirect 
-     }
 
 
     makeTheOption = (event) => {
-        
-        // let data = {name: event.currentTarget.optionName.value, date: event.currentTarget.date.value, username: window.localStorage.username}
+        // debugger
+        let data = {name: event.currentTarget.optionName.value, destination_id: event.currentTarget.destination_id.value }
         event.preventDefault()
         console.log("you're making a lodgingOption")
-        fetch("http://localhost:4000/lodingOptions", {
+        fetch("http://localhost:4000/lodging_options", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(res => res.json()).then(trip =>  this.goToTrip(trip.id) )
+        }).then(res => res.json())
         // The behavior we want is to show the trip detail page 
     }
 
-    render() {
+    getDestinations=()=>{
+        // this.setState({destinations: ["anthing"]})
+        let allDestinations = []
+        fetch('http://localhost:4000/destinations').then(res => res.json()).then(destinations => {
+            allDestinations.push(...destinations)
+            
+    })
+        this.setState({allDestinations: allDestinations})
+    }
 
+    componentWillMount(){
+        this.getDestinations()
+    }
+
+    render() {
+        // this.getDestinations()
         return (
-        <div className="comp box tripcreationform form">
+        <div className="comp box optionform form">
             <section className="hero is-primary is-fullheight">
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-                            <form action="" className="box" onSubmit={(event) => this.makeTheTrip(event)}>
+                            <form action="" className="box" onSubmit={(event) => this.makeTheOption(event)}>
                                 <div className="field">
-                                    {/* <label for="tripname" className="label">Name your trip</label> */}
-                                    <input name="tripname" className="input" type="text" placeholder="Name your trip" />
+                                    {/* <label for="optionname" className="label">Where should we stay?</label> */}
+                                    <input name="optionName" className="input" type="text" placeholder="Where should we stay?" />
                                 </div>
                                 <div className="field">
-                                    {/* <label for="date" className="label">When will it happen?</label> */}
-                                <input name="date" className="input" type="date"  />
+                                    {/* <label for="location" className="label">Location</label> */}
+                                    {/* Below we will add a field using dataset to autoselect locations */}
+                                    {/* <input name="location" className="input" type="text"  /> */}
+                                    <input list="destinations" name="destination_id"/>
+                                    <datalist id="destinations">
+                                        {/* refactor this to use the ACTUALLY RELEVANT LOCATIONS instead of every location */}
+                                        {this.state.allDestinations ? this.state.allDestinations.map(destination => <option value={destination.id}>{destination.name}</option>): console.log("too bad about no destinations in state")}
+                                    </datalist>
                                 </div>
                                 <input type="submit" className="button"/>
                             </form>
