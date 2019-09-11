@@ -18,10 +18,6 @@ class Budget extends React.Component {
                 <div  className="comp budget">
                     Budget Overview
                 </div>
-                <div>
-                    <LodgingOption />
-                    <MealOption />
-                </div>
             </div>
         )
     }

@@ -2,7 +2,6 @@ import React from 'react'
 
 class LodgingOption extends React.Component {
     render() {
-        console.log(this.props)
         return(
             <div className="card">
                 <div className="card-image">
@@ -18,12 +17,12 @@ class LodgingOption extends React.Component {
                         </figure>
                     </div>
                     <div className="media-content">
-                        <p className="title is-4"></p>
-                        <p className="subtitle is-6"></p>
+                        <p className="title is-4">{this.props.lodging ? this.props.lodging.name : null}</p>
+                        <p className="subtitle is-6">Cost: {this.props.lodging ? this.props.lodging.cost : null}</p>
                     </div>
                     </div>
                 </div>
-                </div>
+            </div>
         )
     }
 } 
