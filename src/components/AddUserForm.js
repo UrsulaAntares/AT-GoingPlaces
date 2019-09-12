@@ -36,7 +36,7 @@ class AddUserForm extends React.Component {
             
             allUsers.push(...users)       
     })
-        debugger
+        
         this.setState({allUsers: allUsers})
     }
 
@@ -49,7 +49,7 @@ class AddUserForm extends React.Component {
   
         return (
         <div className="comp box optionform form">
-            <section className="hero is-primary is-fullheight">
+            <section className="hero is-primary">
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
@@ -57,11 +57,12 @@ class AddUserForm extends React.Component {
                             <form action="" className="box" onSubmit={(event) => this.makeTheOption(event)}>
                                 
                                 <div className="field">
-                                    {/* <label for="location" className="label">Location</label> */}
+                                    <label for="users" className="label">Who's coming on this trip?</label>
                                     <input list="users" name="user_id"/>
                                     <datalist id="users">
                                         {/* refactor this to use the ACTUALLY RELEVANT USERS if they ever have friends */}
-                                        {this.state.allUsers ? this.state.allUsers.map(user => <option value={user.id}>{user.username}</option>): console.log("too bad about no users in state")}
+                                        {/* {this.state.allUsers ? this.state.allUsers.map(user => <option value={user.id}>{user.username}</option>): console.log("too bad about no users in state")} */}
+                                        {this.props.allUsers ? this.props.allUsers.map(user => <option value={user.id}>{user.username}</option>): console.log("too bad about no users passed as props")}
                                     </datalist>
                                 </div>
                                 <input type="submit" className="button"/>

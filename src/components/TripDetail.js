@@ -5,6 +5,28 @@ import AddUserForm from './AddUserForm';
 import LodgingOptionForm from './LodgingOptionForm';
 
 class TripDetail extends React.Component {
+
+    constructor(){
+        super()
+        this.state={}
+    }
+
+    getUsers=()=>{
+        let allUsers = []
+        fetch('http://localhost:4000/users').then(res => res.json()).then(users => {
+            
+            allUsers.push(...users)       
+    })
+        
+        this.setState({allUsers: allUsers})
+        console.log("We got the users in TripDetail", this.state.allUsers)
+    }
+
+    componentWillMount(){
+        this.getUsers()
+    }
+
+
     render() {
 
        
@@ -17,7 +39,7 @@ class TripDetail extends React.Component {
                         return <LodgingOption lodging = {lodging}/>
                     }) : null }
 
-                    {this.props.trip ?   <AddUserForm trip = {this.props.trip}/> : null }
+                    {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers}/> : null }
 
                 </div>
                 <div className = "column">
