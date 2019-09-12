@@ -24,6 +24,26 @@ a {
     border: blue 1px;
 }
 
+.column {
+    display: inline-block;
+}
+
+// .lodging-card p {
+//     font-family: 'Amatic SC', cursive;
+// }
+
+.budget-card {
+    position: fixed;
+}
+
+.table {
+    margin: auto;
+}
+
+  .is-three-fifths {
+      padding-top: 30px;
+  }
+
 // Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
