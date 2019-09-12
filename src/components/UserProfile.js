@@ -12,8 +12,6 @@ const UserProfile = (props) => {
     
     return(
         <div  className="comp user box">
-            <h1>{props.username}'s Plans</h1>
-            
             {/* Currently NOT hiding this from users who have other trips in order to get it working first */}
              <TripCreationForm />
             

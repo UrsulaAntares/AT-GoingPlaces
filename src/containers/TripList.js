@@ -9,14 +9,6 @@ const TripList = ({ trips }) => {
         return <Trip key = {trip.id} trip = {trip} />
     })
     // {trips[tripID].name}
-        const styles = {
-            heroInfo: {
-                backgroundImage: `url(${image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-            }
-        };
         return(
             <div>
                 <nav className="level">
@@ -25,7 +17,7 @@ const TripList = ({ trips }) => {
                     </p>
                 </nav>
 
-                <div className="comp tripList columns">
+                <div className="comp tripList columns is-multiline">
                     {renderTrips}
                 </div>
             </div>

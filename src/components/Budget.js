@@ -16,23 +16,28 @@ class Budget extends React.Component {
                 <div className="card-content">
                     <div className="media">
                         <table className = "table">
-                            <tr>
-                                <td>Lodging</td>
-                                <td>{this.props.lodgingOptionCost}</td>
-                            </tr>
-                            <tr>
-                                <td>Transportation</td>
-                                <td>{this.props.transportationCost}</td>
-                            </tr>
-                            <tr>
-                                <td>Food</td>
-                                <td>{this.props.foodCost}</td>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td></td>
-                                <td>{this.props.total}</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Lodging</td>
+                                    <td></td>
+                                    <td>{this.props.lodgingOptionCost}</td>
+                                </tr>
+                                <tr>
+                                    <td>Transportation</td>
+                                    <td></td>
+                                    <td>{this.props.transportationCost}</td>
+                                </tr>
+                                <tr>
+                                    <td>Food</td>
+                                    <td></td>
+                                    <td>{this.props.foodCost}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td></td>
+                                    <td>{this.props.total}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

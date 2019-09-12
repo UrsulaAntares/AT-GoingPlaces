@@ -7,6 +7,7 @@ class Trip extends React.Component {
     
 
     render() {
+        let date = new Date(this.props.trip.date);
         return( 
             <div className="comp trip column is-one-quarter">
                 <div className="card">
@@ -16,20 +17,16 @@ class Trip extends React.Component {
                         </figure>
                     </div>
                 </div>
-                <div className="card-content">
+                <div className="card-content trip-card">
                     <div className="columns">
-                        <div className="column is-half">
-                            <p>{this.props.trip.name}</p>
-                            <p>{this.props.trip.date}</p>
-                        </div>
-                        <div className="column is-half">
-                            <span className="icon">
-                                <i className="fa fa-map-marker" aria-hidden="true"></i>
-                            </span>
-                            <p>{this.props.trip.name}</p>
-                            
-                            <p className="subtitle is-6">{this.props.trip.users ? this.props.trip.users.map(user => user.name + ' '): null} </p>
+                        <div className="column">
+                            <p><strong>Destination: </strong>{this.props.trip.name}
+                            <br />
+                            <strong>Date: </strong>{date.toLocaleDateString("en-us")}
+                            <br />
                             <Link key = {this.props.trip.id} to = {`/trips/${this.props.trip.id}`}>See Trip</Link>
+                            </p>
+                            <p className="subtitle is-6">{this.props.trip.users ? this.props.trip.users.map(user => user.name + ' '): null} </p>
                         </div>
                     </div>
                 </div>

@@ -50,7 +50,7 @@ class TripCreationForm extends React.Component {
                                     <input name="tripname" className="input" type="text" placeholder="Name your trip" />
                                 </div>
                                 <div className="field">
-                                    <label for="date" className="label">Choose a Date</label>
+                                    <label htmlFor="date" className="label">Choose a Date</label>
                                 <input name="date" className="input" type="date" />
                                 </div>
                                 <input type="submit" className="button"/>
