@@ -11,8 +11,9 @@ class User extends React.Component {
     }
 
     render() {
+        
         return(
-            <div  className="comp user">This is a User</div>
+            <div  className="comp user card column is-half">{this.props.user.username}</div>
         )
     }
 } 

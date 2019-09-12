@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
 
 
 class AddUserForm extends React.Component {
@@ -25,7 +25,7 @@ class AddUserForm extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(res => res.json())
+        }).then(res => res.json()).then(userTrip => this.props.functionToRender(userTrip.user_id))
         // The behavior we want is to show the trip detail page w/this minimized after complete
     }
 

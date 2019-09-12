@@ -26,9 +26,7 @@ class TripCreationForm extends React.Component {
             },
             body: JSON.stringify(data)
         }).then(res => res.json()).then(trip =>  this.goToTrip(trip.id) )
-        // Challenge now: make this SHOW the trip
-        // go to the trip's page
-        // the trip.id here is correct but not sure how to make the page re-route; reexamine the router labs
+        
     }
 
     render() {

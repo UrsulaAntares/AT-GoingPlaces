@@ -3,6 +3,7 @@ import Budget from './Budget'
 import LodgingOption from './LodgingOption'
 import AddUserForm from './AddUserForm';
 import LodgingOptionForm from './LodgingOptionForm';
+import User from './User'
 
 class TripDetail extends React.Component {
     constructor() {
@@ -10,7 +11,8 @@ class TripDetail extends React.Component {
         this.state = {
             lodgingCost: 0,
             transportationCost: 0,
-            foodCost: 0
+            foodCost: 0,
+            users: []
         }
     }
 
@@ -18,6 +20,12 @@ class TripDetail extends React.Component {
     //     console.log('clicked!', parseInt(event.currentTarget.textContent.split(" ").splice(-1)[0]))
     //     return parseInt(event.currentTarget.textContent.split(" ").splice(-1)[0])
     // }
+
+    functionToRender=(user_id)=>{
+        let user = this.state.allUsers.find(user => user.id === user_id)
+  
+        this.setState({users: [...this.state.users, user]})
+    }
 
     lodgingCostCallback = (lodgingObj) => {
         console.log('clicked!', lodgingObj)
@@ -32,9 +40,14 @@ class TripDetail extends React.Component {
     }
 
         /////////////////////////////
-
-
     getUsers=()=>{
+        debugger
+        if (this.props.trip) {
+        this.setState({users: this.props.trip.users})  }      
+        console.log("These are the users", this.state.users)
+    }
+
+    getAllUsers=()=>{
         let allUsers = []
         fetch('http://localhost:4000/users').then(res => res.json()).then(users => {
             
@@ -55,7 +68,9 @@ class TripDetail extends React.Component {
 
     componentWillMount(){
         this.getUsers()
+        this.getAllUsers()
         this.getDestinations()
+
     }
 
   
@@ -75,8 +90,8 @@ class TripDetail extends React.Component {
                         return <LodgingOption lodging = {lodging}/>
                     }) : null }
 
-                    {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers}/> : null }
-
+                    {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers} functionToRender={this.functionToRender}/> : null }
+                    {this.state.users ? this.state.users.map(user => <User user={user}/>) : null }
                 </div>
                 <div className = "column is-one-quarter is-offset-1">
                     <Budget
