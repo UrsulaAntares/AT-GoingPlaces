@@ -3,6 +3,8 @@ import React from 'react'
 import LodgingOption from './LodgingOption'
 import MealOption from './MealOption'
 
+import Placeholder from '../philipe-cavalcante-Kniw5HcqeII-unsplash.jpg'
+
 class Budget extends React.Component {
 
     render() {
@@ -10,7 +12,7 @@ class Budget extends React.Component {
             <div className="card budget-card">
                 <div className="card-image">
                     <figure className="image is-3by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"/>
+                    <img src={Placeholder} alt="Placeholder image"/>
                     </figure>
                 </div>
                 <div className="card-content">

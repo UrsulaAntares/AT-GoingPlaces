@@ -37,6 +37,19 @@ $input-shadow: none;
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
 
+.comp {
+    border-right: solid 0.5px #ccc;
+}
+
+.budgetSnapshots {
+    font-family: $family-sans-serif;
+}
+
+.trip-card a {
+    color: $light-brown;
+    font-size: 1.25em;
+}
+
 .hero-body {
     background: url('agustin-diaz-7F65HDP0-E0-unsplash.jpg');
     height: 100vh;

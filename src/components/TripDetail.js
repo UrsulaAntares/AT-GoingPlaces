@@ -87,11 +87,14 @@ class TripDetail extends React.Component {
         return( 
             <div className = "columns is-multiline">
                 <div className = "column is-three-fifths">
-                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations} showOption={this.showOption}/> : null }
 
                     {this.state.lodgingOptions ? this.state.lodgingOptions.map(lodging => {
                         return <LodgingOption lodging = {lodging}/>
                     }) : null }
+                    
+                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations} showOption={this.showOption}/> : null }
+                    
+                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations}/> : null }
 
                     {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers} functionToRender={this.functionToRender}/> : null }
                     {this.state.users ? this.state.users.map(user => <User user={user} />) : null }
