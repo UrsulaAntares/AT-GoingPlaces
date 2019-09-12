@@ -40,18 +40,25 @@ class TripDetail extends React.Component {
             
             allUsers.push(...users)       
     })
-        
         this.setState({allUsers: allUsers})
         console.log("We got the users in TripDetail", this.state.allUsers)
     }
 
-    componentWillMount(){
-        this.getUsers()
+    getDestinations=()=>{
+        let allDestinations = []
+        fetch('http://localhost:4000/destinations').then(res => res.json()).then(destinations => {
+            allDestinations.push(...destinations)       
+    })
+        this.setState({allDestinations: allDestinations})
+        console.log("We got the destinations in TripDetail", this.state.allDestinations)
     }
 
-    /////
+    componentWillMount(){
+        this.getUsers()
+        this.getDestinations()
+    }
 
-    
+  
 
 
 
@@ -62,7 +69,7 @@ class TripDetail extends React.Component {
         return( 
             <div className = "columns is-multiline">
                 <div className = "column is-three-fifths">
-                    {/* <LodgingOptionForm trip = {this.props.trip} /> */}
+                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations}/> : null }
 
                     {this.props.trip ? this.props.trip.lodging_options.map(lodging => {
                         return <LodgingOption lodging = {lodging}/>

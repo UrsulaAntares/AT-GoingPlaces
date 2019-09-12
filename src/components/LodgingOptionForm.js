@@ -34,18 +34,20 @@ class LodgingOptionForm extends React.Component {
             allDestinations.push(...destinations)       
     })
         this.setState({allDestinations: allDestinations})
-    }
+    } //this might be deprecated in favor of passing in props
 
-    componentWillMount(){
+    componentDidlMount(){
         this.getDestinations()
+
+        //may be deprecated
     }
 
     render() {
-        // this.getDestinations()
-        debugger
+        
+       
         return (
         <div className="comp box optionform form">
-            <section className="hero is-primary is-fullheight">
+            <section className="hero is-primary">
             <div className="hero-body">
                 <div className="container">
                     <div className="columns is-centered">
@@ -60,7 +62,7 @@ class LodgingOptionForm extends React.Component {
                                     <input list="destinations" name="destination_id"/>
                                     <datalist id="destinations">
                                         {/* refactor this to use the ACTUALLY RELEVANT LOCATIONS instead of every location */}
-                                        {this.state.allDestinations ? this.state.allDestinations.map(destination => <option value={destination.id}>{destination.name}</option>): console.log("too bad about no destinations in state")}
+                                        {this.props.allDestinations ? this.props.allDestinations.map(destination => <option value={destination.id}>{destination.name}</option>): console.log("too bad about no destinations in state")}
                                     </datalist>
                                 </div>
                                 <input type="submit" className="button"/>

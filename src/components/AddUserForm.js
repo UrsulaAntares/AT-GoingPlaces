@@ -57,7 +57,7 @@ class AddUserForm extends React.Component {
                             <form action="" className="box" onSubmit={(event) => this.makeTheOption(event)}>
                                 
                                 <div className="field">
-                                    <label for="users" className="label">Who's coming on this trip?</label>
+                                    <label name="users" className="label">Who's coming on this trip?</label>
                                     <input list="users" name="user_id"/>
                                     <datalist id="users">
                                         {/* refactor this to use the ACTUALLY RELEVANT USERS if they ever have friends */}
