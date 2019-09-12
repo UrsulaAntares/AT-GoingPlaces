@@ -27,6 +27,8 @@ class TripDetail extends React.Component {
         this.setState({users: [...this.state.users, user]})
     }
 
+
+
     lodgingCostCallback = (lodgingObj) => {
         console.log('clicked!', lodgingObj)
         this.setState({
@@ -85,7 +87,7 @@ class TripDetail extends React.Component {
                     }) : null }
 
                     {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers} functionToRender={this.functionToRender}/> : null }
-                    {this.state.users ? this.state.users.map(user => <User user={user}/>) : null }
+                    {this.state.users ? this.state.users.map(user => <User user={user} />) : null }
                 </div>
                 <div className = "column is-one-quarter is-offset-1">
                     <Budget

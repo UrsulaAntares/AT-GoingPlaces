@@ -11,9 +11,11 @@ class TripCreationForm extends React.Component {
         }
     }
 
-    goToTrip = (id) => {
-        return <Redirect to={`http://localhost:3000/trips/${id}`} />
-     }
+    // goToTrip = (trip) => {
+    //     // return <Redirect to={`http://localhost:3000/trips/${id}`} />
+    //     // Retooling this to make it render to the page instead
+    //     this.props.functionToRender(trip)
+    //  }
  
 
 
@@ -29,7 +31,7 @@ class TripCreationForm extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(res => res.json()).then(trip =>  this.goToTrip(trip.id) )
+        }).then(res => res.json()).then(trip =>  this.props.functionToRender(trip) )
         
     }
 
