@@ -15,11 +15,11 @@ class UserProfile extends React.Component {
         this.state = {
         }
     }
-
+    
     componentDidMount() {
         this.setState({trips: this.props.trips})
     }
-
+    
     showNewTrip=(trip)=>{
         this.setState({madeNew: 'TRUE'})
         this.setState({trips: [...this.state.trips, trip]})
@@ -27,16 +27,16 @@ class UserProfile extends React.Component {
 
     }
     
-    return(
-        <div  className="comp user box">
-            {/* Currently NOT hiding this from users who have other trips in order to get it working first */}
-             {!this.state.madeNew ? <TripCreationForm functionToRender={this.showNewTrip}/>: null}
-            
-            {this.state.trips ? <TripList trips = {this.state.trips} /> : null}
-        </div>
-        )
+    render() {
+        return(
+            <div className="comp user box">
+                {/* Currently NOT hiding this from users who have other trips in order to get it working first */}
+                 {!this.state.madeNew ? <TripCreationForm functionToRender={this.showNewTrip}/>: null}
+                
+                {this.state.trips ? <TripList trips = {this.state.trips} /> : null}
+            </div>
+            )
+        }
     }
-    
-} 
 
 export default UserProfile

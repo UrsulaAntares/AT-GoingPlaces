@@ -17,7 +17,7 @@ const TripList = ({ trips }) => {
                     </p>
                 </nav>
 
-                <div className="comp tripList columns is-multiline">
+                <div className="tripList columns is-multiline">
                     {renderTrips}
                 </div>
             </div>
