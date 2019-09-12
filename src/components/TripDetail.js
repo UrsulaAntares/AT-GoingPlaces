@@ -12,7 +12,8 @@ class TripDetail extends React.Component {
             lodgingCost: 0,
             transportationCost: 0,
             foodCost: 0,
-            users: []
+            users: [],
+            lodgingOptions: []
         }
     }
 
@@ -27,6 +28,11 @@ class TripDetail extends React.Component {
         this.setState({users: [...this.state.users, user]})
     }
 
+    showOption=(option)=>{
+        // let option = this.state.lodgingOptions.find(option => option.id === user_id)
+  
+        this.setState({lodgingOptions: [...this.state.lodgingOptions, option]})
+    }
 
 
     lodgingCostCallback = (lodgingObj) => {
@@ -71,7 +77,8 @@ class TripDetail extends React.Component {
         this.getUsers()
         this.getAllUsers()
         this.getDestinations()
-
+        // debugger
+        return this.props.trip ? this.setState({lodgingOptions: this.props.trip.lodgingOptions}) : null
     }
 
     render() {
@@ -80,9 +87,9 @@ class TripDetail extends React.Component {
         return( 
             <div className = "columns is-multiline">
                 <div className = "column is-three-fifths">
-                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations}/> : null }
+                    {this.props.trip ? <LodgingOptionForm trip = {this.props.trip} allDestinations={this.state.allDestinations} showOption={this.showOption}/> : null }
 
-                    {this.props.trip ? this.props.trip.lodging_options.map(lodging => {
+                    {this.state.lodgingOptions ? this.state.lodgingOptions.map(lodging => {
                         return <LodgingOption lodging = {lodging}/>
                     }) : null }
 

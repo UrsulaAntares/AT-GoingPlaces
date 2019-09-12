@@ -24,7 +24,7 @@ class LodgingOptionForm extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(res => res.json())
+        }).then(res => res.json()).then(option => this.props.showOption(option))
         // The behavior we want is to show the trip detail page w/this minimized after complete
     }
 
