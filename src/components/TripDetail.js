@@ -1,6 +1,8 @@
 import React from 'react'
 import Budget from './Budget'
 import LodgingOption from './LodgingOption'
+import AddUserForm from './AddUserForm';
+import LodgingOptionForm from './LodgingOptionForm';
 
 class TripDetail extends React.Component {
     constructor() {
@@ -29,16 +31,45 @@ class TripDetail extends React.Component {
         return parseInt(lodgingCost + transportationCost + foodCost)
     }
 
+        /////////////////////////////
+
+
+    getUsers=()=>{
+        let allUsers = []
+        fetch('http://localhost:4000/users').then(res => res.json()).then(users => {
+            
+            allUsers.push(...users)       
+    })
+        
+        this.setState({allUsers: allUsers})
+        console.log("We got the users in TripDetail", this.state.allUsers)
+    }
+
+    componentWillMount(){
+        this.getUsers()
+    }
+
+    /////
+
+    
+
+
+
+
     render() {
-        console.log(this.props)
+
+       
         return( 
             <div className = "columns is-multiline">
                 <div className = "column is-three-fifths">
-                    {
-                        this.props.trip ? this.props.trip.lodging_options.map(lodging => {
-                return <LodgingOption lodging = {lodging} lodgingCallbackFromTripDetail = {this.lodgingCostCallback} />
-            }) : null
-                    }
+                    {/* <LodgingOptionForm trip = {this.props.trip} /> */}
+
+                    {this.props.trip ? this.props.trip.lodging_options.map(lodging => {
+                        return <LodgingOption lodging = {lodging}/>
+                    }) : null }
+
+                    {this.props.trip ?   <AddUserForm trip={this.props.trip}  allUsers={this.state.allUsers}/> : null }
+
                 </div>
                 <div className = "column is-one-quarter is-offset-1">
                     <Budget
