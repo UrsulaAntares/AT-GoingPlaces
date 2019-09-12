@@ -7,7 +7,7 @@ class LodgingOption extends React.Component {
             <div className = "column is-half">
             <div className="card lodging-card" onClick = {() => this.props.lodgingCallbackFromTripDetail(this.props.lodging)}>
                 <div className="card-image">
-                    <figure className="image is-4by3">
+                    <figure className="image is-16by9">
                     <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
                     </figure>
                 </div>
@@ -15,7 +15,7 @@ class LodgingOption extends React.Component {
                     <div className="media">
                     <div className="media-content">
                         <p className="title is-4">{this.props.lodging ? this.props.lodging.name : null}</p>
-                        <p className="subtitle is-6">Cost: {this.props.lodging ? this.props.lodging.cost : null}</p>
+                        <p className="subtitle is-6">${this.props.lodging ? this.props.lodging.cost : null}</p>
                     </div>
                     </div>
                 </div>

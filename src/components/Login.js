@@ -55,15 +55,20 @@ class Login extends Component {
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="" className="box" onSubmit={(event) => this.handleLoginSubmit(event)}>
-                                <div className="field">
-                                    {/* <label for="username" className="label">Username</label> */}
-                                    <input name="username" className="input" type="text" placeholder="Username" />
+                                <h3>Going Places</h3>
+                                <div className = "inner-form-box">
+                                    <div className="field">
+                                        {/* <label for="username" className="label">Username</label> */}
+                                        <input name="username" className="input" type="text" placeholder="Username" />
+                                    </div>
+                                    <div className="field">
+                                        {/* <label for="password" className="label">Password</label> */}
+                                    <input name="password" className="input" type="password" placeholder="Password" />
+                                    </div>
+                                    <div className = "login-button-div">
+                                        <input type="submit" className="button" value = "Login"/>
+                                    </div>
                                 </div>
-                                <div className="field">
-                                    {/* <label for="password" className="label">Password</label> */}
-                                <input name="password" className="input" type="password" placeholder="Password" />
-                                </div>
-                                <input type="submit" className="button"/>
                             </form>
                         </div>
                     </div>

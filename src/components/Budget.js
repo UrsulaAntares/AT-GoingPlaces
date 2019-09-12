@@ -17,17 +17,14 @@ class Budget extends React.Component {
                     <div className="media">
                         <table className = "table">
                             <tr>
-                                <td>Icon</td>
                                 <td>Lodging</td>
                                 <td>{this.props.lodgingOptionCost}</td>
                             </tr>
                             <tr>
-                                <td>Icon</td>
                                 <td>Transportation</td>
                                 <td>{this.props.transportationCost}</td>
                             </tr>
                             <tr>
-                                <td>Icon</td>
                                 <td>Food</td>
                                 <td>{this.props.foodCost}</td>
                             </tr>

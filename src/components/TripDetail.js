@@ -41,7 +41,6 @@ class TripDetail extends React.Component {
 
         /////////////////////////////
     getUsers=()=>{
-        debugger
         if (this.props.trip) {
         this.setState({users: this.props.trip.users})  }      
         console.log("These are the users", this.state.users)
@@ -72,11 +71,6 @@ class TripDetail extends React.Component {
         this.getDestinations()
 
     }
-
-  
-
-
-
 
     render() {
 

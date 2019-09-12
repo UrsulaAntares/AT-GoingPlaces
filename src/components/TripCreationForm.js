@@ -39,15 +39,18 @@ class TripCreationForm extends React.Component {
                     <div className="columns is-centered">
                         <div className="column is-5-tablet is-4-desktop is-3-widescreen">
                             <form action="" className="box" onSubmit={(event) => this.makeTheTrip(event)}>
+                                <h3>Ready to Plan Your Trip?</h3>
+                                <div className = "inner-form-box">
                                 <div className="field">
                                     {/* <label for="tripname" className="label">Name your trip</label> */}
                                     <input name="tripname" className="input" type="text" placeholder="Name your trip" />
                                 </div>
                                 <div className="field">
-                                    {/* <label for="date" className="label">When will it happen?</label> */}
-                                <input name="date" className="input" type="date"  />
+                                    <label for="date" className="label">Choose a Date</label>
+                                <input name="date" className="input" type="date" />
                                 </div>
                                 <input type="submit" className="button"/>
+                                </div>
                             </form>
                         </div>
                     </div>

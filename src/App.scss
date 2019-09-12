@@ -2,7 +2,113 @@
 @import "../node_modules/bulma/bulma.sass";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300&display=swap');
+
+// Set your brand colors
+$dark-gray: #373331;
+$orange: #d18040;
+$light-brown: #c3afa0;
+$off-white: #e6e8e1;
+$grey: #c8ccd1;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Open Sans Condensed', sans-serif;
+$grey-dark: $light-brown;
+$grey-light: $grey;
+$primary: $orange;
+$link: $dark-gray;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $off-white;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/elements/title.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma/sass/layout/section.sass";
+
+.hero-body {
+    background: url('agustin-diaz-7F65HDP0-E0-unsplash.jpg');
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-body.container {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.comp.login.box {
+    padding: 0;
+}
+
+form.box {
+    opacity: 0.97;
+    border-radius: 2px;
+    width: 30vw;
+    margin: 0 auto;
+    margin-left: -150px;
+}
+
+form.box h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+.inner-form-box {
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.input {
+    border-radius: 2px;
+    border-bottom: 1px solid #ccc;
+    width: 75%;
+    font-family: $family-sans-serif;
+}
+
+.input:hover {
+    border: none;
+}
+
+.login-button-div {
+    text-align: center;
+}
+
+input.button {
+    background-color: $light-brown;
+    color: white;
+    margin-top: 10px;
+    padding: 5px 20px;
+    border-style: none;
+    text-decoration: none;
+    border-radius: 1%;
+    font-family: 'Amatic SC', cursive;
+}
 
 a {
     font-family: 'Amatic SC', cursive;
@@ -20,67 +126,61 @@ a {
     font-size: 2em;
 }
 
-.is-half {
-    border: blue 1px;
-}
-
 .column {
     display: inline-block;
 }
 
-// .lodging-card p {
-//     font-family: 'Amatic SC', cursive;
-// }
-
-.budget-card {
-    position: fixed;
-}
-
 .table {
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
   .is-three-fifths {
       padding-top: 30px;
   }
 
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+  .card-content {
+      padding: 0
+  }
 
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+  .lodging-card {
+      border-radius: 2px;
+  }
 
-// Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
+  p.title.is-4 {
+    font-size: 1.30rem;
+    padding: .75rem;
+    margin-bottom: 0;
+    font-family: 'Amatic SC', cursive;
+}
 
-// Import only what you need from Bulma
-@import "../node_modules/bulma/sass/utilities/_all.sass";
-@import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
-@import "../node_modules/bulma/sass/elements/title.sass";
-@import "../node_modules/bulma/sass/form/_all.sass";
-@import "../node_modules/bulma/sass/components/navbar.sass";
-@import "../node_modules/bulma/sass/layout/hero.sass";
-@import "../node_modules/bulma/sass/layout/section.sass";
+.subtitle.is-6 {
+    padding: .75rem;
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.title:not(:last-child) {
+    margin: 0;
+}
 
 // TripList Styling //
 p {
     padding: 20px;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.5em;
 }
 // End TripList Styling //
+
+label.label {
+    font-family: $family-sans-serif;
+    margin-bottom: 2.5px !important;
+}
+
+div.comp.user.box {
+    padding-top: 50px;
+}
+
+div.comp.box.tripcreationform.form {
+    padding: 0;
+}
