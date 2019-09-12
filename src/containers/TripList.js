@@ -19,11 +19,6 @@ const TripList = ({ trips }) => {
         };
         return(
             <div>
-                <section className="hero is-info is-large" style = {styles.heroInfo}>
-                    <div className="hero-body">
-                    </div>
-                </section>
-
                 <nav className="level">
                     <p className="level-item has-text-centered">
                         All Trips
