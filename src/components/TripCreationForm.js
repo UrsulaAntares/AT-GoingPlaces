@@ -11,6 +11,10 @@ class TripCreationForm extends React.Component {
         }
     }
 
+    goToTrip = (id) => {
+        return <Redirect to={`http://localhost:3000/trips/${id}`} />
+     }
+ 
 
 
     makeTheTrip = (event) => {
